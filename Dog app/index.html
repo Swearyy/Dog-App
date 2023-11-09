@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dog App</title>
+</head>
+<body>
+    <h1>Welcome to the Dog App</h1>
+    <ul>
+        {% for dog_name, dog_data in dogs.items() %}
+            <li><a href="{{ url_for('dog_profile', dog_name=dog_name) }}">{{ dog_data['name'] }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

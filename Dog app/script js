@@ -1,0 +1,27 @@
+function guessingGame() {
+    const secretNumber = crypto.getRandomValues(new Uint8Array(1))[0] % 100;
+ 
+  let gameEnded = false;
+
+ 
+  return function play(guess) {
+    if (gameEnded) {
+      return "The game has already ended. Please start a new game.";
+    }
+
+    if (guess === secretNumber) {
+      gameEnded = true;
+      return "Congratulations! You guessed the correct number.";
+    } else if (guess < secretNumber) {
+      return "Too low! Try again.";
+    } else {
+      return "Too high! Try again.";
+    }
+  };
+}
+
+const game = guessingGame();
+console.log(game(50)); // Output: "Too low! Try again."
+console.log(game(75)); // Output: "Too high! Try again."
+console.log(game(60)); // Output: "Congratulations! You guessed the correct number."
+console.log(game(60)); // Output: "The game has already ended. Please start a new game."

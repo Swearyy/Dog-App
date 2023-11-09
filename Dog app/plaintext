@@ -1,0 +1,5 @@
+my_dog_app/
+    app.py
+    templates/
+        index.html
+        dog.html
